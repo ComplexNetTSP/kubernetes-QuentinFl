@@ -1,6 +1,22 @@
 version: "3.8"
+
 services:
   flask_app:
     build: .
     ports:
       - "5000:5000"
+      version: "3.8"
+  mongodb:
+    image: mongo:8.0
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    volumes:
+      - mongodb_data:/data/db
+      
+volumes:
+  mongodb_data:
