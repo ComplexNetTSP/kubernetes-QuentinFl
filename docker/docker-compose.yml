@@ -7,7 +7,7 @@ services:
       - "5000:5000"
       version: "3.8"
   mongodb:
-    image: mongo:8.0
+    image: mongo:4.4
     container_name: mongodb
     restart: always
     ports:
@@ -17,6 +17,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: pass
     volumes:
       - mongodb_data:/data/db
-      
+
 volumes:
   mongodb_data:
