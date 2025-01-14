@@ -166,6 +166,9 @@ Add a [NGINX](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-b
 
 ## Challenge 5: Learn Kubernetes with the online tutorial (1pts)
 
+qflamarion
+qflamarion@-123
+
 - Ask the professor to get access to the Kubernetes cluster.
 - Install [kubectl](https://kubernetes.io/fr/docs/tasks/tools/install-kubectl/)
 - Use the provided credentials to connect in the [Rancher Web interface](https://net4255.luxbulb.org). You have access to the cluster dashboard at the same address.
