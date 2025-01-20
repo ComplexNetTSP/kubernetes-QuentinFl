@@ -30,7 +30,7 @@
             <mxPoint x="440" y="230" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="VD-kIytu-Z_Okrrlx_6d-31" value="5000:5000" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="VD-kIytu-Z_Okrrlx_6d-6">
+        <mxCell id="VD-kIytu-Z_Okrrlx_6d-31" value="80:5000" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="VD-kIytu-Z_Okrrlx_6d-6">
           <mxGeometry x="-0.61" y="-1" relative="1" as="geometry">
             <mxPoint x="13" y="4" as="offset" />
           </mxGeometry>
@@ -105,7 +105,7 @@
             <mxPoint x="257" y="280" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="VD-kIytu-Z_Okrrlx_6d-32" value="5000:5000" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="VD-kIytu-Z_Okrrlx_6d-23">
+        <mxCell id="VD-kIytu-Z_Okrrlx_6d-32" value="80:5000" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="VD-kIytu-Z_Okrrlx_6d-23">
           <mxGeometry x="-0.3938" y="2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
