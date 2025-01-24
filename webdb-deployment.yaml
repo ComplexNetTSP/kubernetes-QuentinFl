@@ -1,26 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webnodb
+  name: webdb
   namespace: qflamarion
   labels:
-    app: webnodb
+    app: webdb
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: webnodb
+      app: webdb
   template:
     metadata:
       labels:
-        app: webnodb
+        app: webdb
     spec:
       containers:
-        - name: webnodb
-          image: quentinfl/webnodb:latest
-          env:
-            - name: NO_DB
-              value: "true"
+        - name: webdb
+          image: quentinfl/webdb:latest
           ports:
             - containerPort: 5000
           livenessProbe:
@@ -30,6 +27,9 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 10
             failureThreshold: 3
+          env:
+            - name: MONGO_URI
+              value: "mongodb://mongodb-service:27017/"
           resources:
             requests:
               memory: "100Mi"
@@ -37,17 +37,18 @@ spec:
             limits:
               memory: "200Mi"
               cpu: "200m"
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: webnodb-service
+  name: webdb-service
   namespace: qflamarion
 spec:
+  type: ClusterIP
   selector:
-    app: webnodb
+    app: webdb
   ports:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-  type: ClusterIP
