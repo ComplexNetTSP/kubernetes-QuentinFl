@@ -1,0 +1,75 @@
+mongodb:
+  name: mongodb
+  app: mongodb
+  replicas: 1
+  image: mongo:4.4
+  port: 27017
+  service:
+    name: mongodb-service
+    type: ClusterIP
+    port: 27017
+  liveness:
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    failureThreshold: 3
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
+    limits:
+      memory: "200Mi"
+      cpu: "200m"
+
+webdb:
+  name: webdb
+  app: webdb
+  replicas: 3
+  image: quentinfl/webdb:latest
+  port: 5000
+  service:
+    name: webdb-service
+    type: ClusterIP
+    port: 27017
+  mongoUri: mongodb://mongodb-service:27017/
+  liveness:
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    failureThreshold: 3
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
+    limits:
+      memory: "200Mi"
+      cpu: "200m"
+
+webnodb:
+  name: webnodb
+  app: webnodb
+  replicas: 1
+  image: quentinfl/webnodb:latest
+  port: 5000
+  service:
+    name: webnodb-service
+    type: ClusterIP
+    port: 5000
+  env:
+    NO_DB: "true"
+  liveness:
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    failureThreshold: 3
+  resources:
+    requests:
+      memory: "100Mi"
+      cpu: "100m"
+    limits:
+      memory: "200Mi"
+      cpu: "200m"
+
+ingress:
+  enabled: true
+  hostname: webnodb.qflamarion.net4255.luxbulb.org
+  webnodbPath: /
+  webdbPath: /
+  annotations: {}
