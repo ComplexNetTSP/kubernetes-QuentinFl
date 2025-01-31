@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: webnodb
-          image: quentinfl/webnodb:latest
+          image: quentinfl/webnodb:v2
           env:
             - name: NO_DB
               value: "true"

@@ -18,7 +18,7 @@ if not NO_DB:
 
 # Informations sur le projet
 PROJECT_NAME = "My Project"
-VERSION = "V1"
+VERSION = "V2"
 NAME = "Quentin Flamarion"
 
 @app.route("/")
@@ -32,10 +32,10 @@ def flaskTest():
         for req in last_requests:
             responses += f"<li>{req['ip']} - {req['date']}</li>"
         responses += "</ul>"
-        return f"<h1>Hello from Flask (DB)</h1><p>Last 10 requests:</p>{responses}"
+        return f"<h1>Hello from Flask {VERSION}(DB)</h1><p>Last 10 requests:</p>{responses}"
 
     else:
-        return f"<h1>Hello from Flask (NO DB)</h1><p>Your IP: {client_ip}</p><p>Current Date: {current_date}</p>"
+        return f"<h1>Hello from Flask {VERSION}(NO DB)</h1><p>Your IP: {client_ip}</p><p>Current Date: {current_date}</p>"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000,debug=True)       

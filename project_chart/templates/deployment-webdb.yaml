@@ -17,14 +17,14 @@ spec:
     spec:
       containers:
         - name: webdb
-          image: quentinfl/webdb:latest
+          image: quentinfl/webdb:v2
           ports:
             - containerPort: 5000
           livenessProbe:
             httpGet:
               path: /
               port: 5000
-            initialDelaySeconds: 5
+            initialDelaySeconds: 41
             periodSeconds: 10
             failureThreshold: 3
           env:
