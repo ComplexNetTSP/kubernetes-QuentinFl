@@ -17,6 +17,10 @@ spec:
         - podSelector:
             matchLabels:
               app: webnodb
+        - podSelector:
+            matchLabels:
+              app: mongodb
+
       ports:
         - protocol: TCP
           port: 27017

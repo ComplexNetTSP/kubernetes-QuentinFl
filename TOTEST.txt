@@ -1,0 +1,23 @@
+Pour faciliter la correction voici les commandes pour tester les challenges:
+
+##challenge 16
+
+kubectl exec -it mongodb-0 --namespace=qflamarion -- mongo
+
+rs.initiate({
+  _id: "rs0",
+  members: [
+    { _id: 0, host: "mongodb-0.mongodb-service.qflamarion.svc.cluster.local:27017" },
+    { _id: 1, host: "mongodb-1.mongodb-service.qflamarion.svc.cluster.local:27017" },
+    { _id: 2, host: "mongodb-2.mongodb-service.qflamarion.svc.cluster.local:27017" }
+  ]
+});
+
+use testDB
+db.users.insert({ name: "Alice", age: 30 })
+
+kubectl exec -it mongodb-1 --namespace=qflamarion -- mongo
+
+rs.secondaryOk()
+use testDB
+db.users.find()
